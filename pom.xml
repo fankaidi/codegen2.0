@@ -1,0 +1,165 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<groupId>com.kensure.ktl</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ec-codegen</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>ec-base module</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<!-- log4j日志文件管理包版本 -->
+		<log4j.version>2.6.2</log4j.version>
+	</properties>
+	<dependencies>
+		<!-- XML数据 -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- 重新定义Java XPath Engine到最新版，避免旧版那些不必要的依赖 -->
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+
+		<!-- 日志文件管理包 -->
+		<!-- log start -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.25-incubating</version>
+		</dependency>
+		<!-- Apache Common包 -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
+		</dependency>
+
+		<!-- 测试包 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<extdirs>src/main/webapp/WEB-INF/lib/</extdirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/.svn/*</exclude>
+				</excludes>
+				<!-- <filtering>true</filtering> -->
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+					<include>**/*.sql</include>
+					<include>**/*.ftl</include>
+				</includes>
+				<excludes>
+					<exclude>**/.svn/*</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
+	<profiles>
+		<profile>
+			<id>jdk-1.8</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>1.8</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>1.8</maven.compiler.source>
+				<maven.compiler.target>1.8</maven.compiler.target>
+				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>jingshu</id>
+			<name>jingshu Repository</name>
+			<url>http://maven.hzjs.co:8081/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>Releases</id>
+			<name>jingshu Release Repository</name>
+			<url>http://maven.hzjs.co:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>Snapshots</id>
+			<name>jingshu Snapshot Repository</name>
+			<url>http://maven.hzjs.co:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

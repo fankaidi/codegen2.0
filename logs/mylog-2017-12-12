@@ -1,0 +1,74 @@
+12-12 09:57:50.391 WARN  [main] FreeMarkerUtils.getTemplateContent:72: 模块格式化出错 {}
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> obj.primaryKey  [in template "mappertemplate.ftl" at line 44, column 22]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if obj.primaryKey != prop.name  [in template "mappertemplate.ftl" at line 44, column 17]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.EvalUtil.compare(EvalUtil.java:196) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.EvalUtil.compare(EvalUtil.java:113) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:62) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.ConditionalBlock.accept(ConditionalBlock.java:48) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:363) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:316) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:272) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:243) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:596) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:327) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:333) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.process(Environment.java:306) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.template.Template.process(Template.java:386) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at com.hzecool.codegen.freemarker.FreeMarkerUtils.getTemplateContent(FreeMarkerUtils.java:64) [classes/:?]
+	at com.hzecool.codegen.util.FileWriteUtil.getContent(FileWriteUtil.java:57) [classes/:?]
+	at com.hzecool.codegen.util.FileWriteUtil.writeFile(FileWriteUtil.java:38) [classes/:?]
+	at com.hzecool.codegen.util.ObjHelper.writeFile(ObjHelper.java:68) [classes/:?]
+	at com.hzecool.codegen.util.ObjHelper.write(ObjHelper.java:50) [classes/:?]
+	at com.hzecool.codegen.CodeGen.startGenCode(CodeGen.java:82) [classes/:?]
+	at com.hzecool.codegen.CodeGen.main(CodeGen.java:71) [classes/:?]
+12-12 10:00:25.058 WARN  [main] FreeMarkerUtils.getTemplateContent:72: 模块格式化出错 {}
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> obj.primaryKey  [in template "mappertemplate.ftl" at line 44, column 22]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if obj.primaryKey != prop.name  [in template "mappertemplate.ftl" at line 44, column 17]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.EvalUtil.compare(EvalUtil.java:196) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.EvalUtil.compare(EvalUtil.java:113) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:62) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.ConditionalBlock.accept(ConditionalBlock.java:48) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:363) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:316) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:272) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:243) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:596) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:327) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.visit(Environment.java:333) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.core.Environment.process(Environment.java:306) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at freemarker.template.Template.process(Template.java:386) ~[freemarker-2.3.25-incubating.jar:2.3.25]
+	at com.hzecool.codegen.freemarker.FreeMarkerUtils.getTemplateContent(FreeMarkerUtils.java:64) [classes/:?]
+	at com.hzecool.codegen.util.FileWriteUtil.getContent(FileWriteUtil.java:57) [classes/:?]
+	at com.hzecool.codegen.util.FileWriteUtil.writeFile(FileWriteUtil.java:38) [classes/:?]
+	at com.hzecool.codegen.util.ObjHelper.writeFile(ObjHelper.java:68) [classes/:?]
+	at com.hzecool.codegen.util.ObjHelper.write(ObjHelper.java:50) [classes/:?]
+	at com.hzecool.codegen.CodeGen.startGenCode(CodeGen.java:82) [classes/:?]
+	at com.hzecool.codegen.CodeGen.main(CodeGen.java:71) [classes/:?]

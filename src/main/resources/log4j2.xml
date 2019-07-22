@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" name="ecbaselog" packages="org.apache.logging.log4j.test">
+	<Properties>
+		<Property name="filename">logs/mylog</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console">
+			<PatternLayout pattern="%d{MM-dd HH:mm:ss.SSS} %-5p [%t] %C{1}.%M:%L: %m %X%n" />
+		</Console>
+		<RollingFile name="RollingFile" fileName="${filename}" filePattern="logs/mylog-%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<pattern>%d{MM-dd HH:mm:ss.SSS} %-5p [%t] %C{1}.%M:%L: %m %X%n</pattern>
+			</PatternLayout>
+			<!-- <CronTriggeringPolicy schedule="0 0 0 * * ?"/> -->
+			<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+ 		<Logger name="com.hzecool" level="info">
+		</Logger>
+ 		<Logger name="org" level="error">
+		</Logger>
+		<Logger name="Console" level="info">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="error">
+			<AppenderRef ref="RollingFile" />
+		</Root>
+	</Loggers>
+
+</Configuration>
